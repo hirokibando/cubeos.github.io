@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/rhombus.css">
+    <title>New tab</title>
+</head>
+
+<body>
+    <h1 id="rhombus-clock-widget">00:00</h1>
+    <div class="rhombus-tod-container">
+        <h1 id="rhombus-tod">Good morning</h1>
+        <img src="https://img.icons8.com/fluency/1600/sun.png" alt="morning" id="rhombus-tod-img">
+    </div>
+    <p class="rhombus-welcome-text">Welcome to Rhombus</p>
+
+    <script>
+        let rhombusClock = document.getElementById("rhombus-clock-widget");
+        let rhombusTimeOfDay = document.getElementById("rhombus-tod");
+        let rhombusImage = document.getElementById("rhombus-tod-img");
+
+        const fetchTime = () => {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            if (hours < 0) {
+                rhombusTimeOfDay.innerHTML = "Good evening"
+                rhombusImage.src = "https://img.icons8.com/fluency/1600/full-moon--v1.png";
+            } else if (hours > 0) {
+                rhombusTimeOfDay.innerHTML = "Good morning"
+                rhombusImage.src = "https://img.icons8.com/fluency/1600/dust-day.png";
+            } else if (hours > 12) {
+                rhombusTimeOfDay.innerHTML = "Good afternoon"
+                rhombusImage.src = "https://img.icons8.com/fluency/1600/sun.png";
+            } else if (hours > 17) {
+                rhombusTimeOfDay.innerHTML = "Good evening"
+                rhombusImage.src = "https://img.icons8.com/fluency/1600/full-moon--v1.png";
+            }
+            
+            const time = `${hours}:${minutes}`;
+            rhombusClock.innerHTML = time;
+        }
+
+        fetchTime();
+        setInterval(fetchTime, 1000);
+    </script>
+</body>
+
+</html>

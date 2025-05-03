@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="icon" type="image/x-icon" href="/assets/cubeosicon.png">
+    <title>CubeOS - The web-based operating system</title>
+</head>
+
+<body>
+    <div class="cube-main-desktop-interactive">
+        <div class="cube-launchwall none" id="launchwall">
+            <div class="cube-launchwall-left">
+                <div class="cube-launchwall-left-date">
+                    <div class="cube-launchwall-left-date-calendar">
+                        <p class="cube-launchwall-left-date-calendar-top-row" id="cube-launchwall-day">Monday</p>
+                        <h3 class="cube-launchwall-left-date-calendar-day" id="cube-launchwall-num">12</h3>
+                    </div>
+                    <h1 class="cube-launchwall-left-date-clock" id="cube-launchwall-clock">00:00</h1>
+                </div>
+                <div class="cube-launchwall-left-widgets">
+                    <div class="cube-launchwall-left-widgets-blank">
+                        No widgets added yet
+                    </div>
+                </div>
+                <div class="cube-launchwall-left-power">
+                    <div class="cube-launchwall-left-power-option">
+                        <i class="bi bi-power"></i>
+                        <p>Quit CubeOS</p>
+                    </div>
+                    <div class="cube-launchwall-left-power-option">
+                        <i class="bi bi-trash3"></i>
+                        <p>Delete local data</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cube-launchwall-divider"></div>
+            <div class="cube-launchwall-right">
+                <h1>All apps</h1>
+                <div class="cube-launchwall-right-apps-row">
+                    <div class="cube-launchwall-right-app" onclick="openWindow('calculator')">
+                        <img src="/assets/appcalculator.png" alt="" class="cube-launchwall-right-app-image">
+                        Calculator
+                    </div>
+                    <div class="cube-launchwall-right-app" onclick="openWindow('rhombus')">
+                        <img src="/assets/apprhombus.png" alt="" class="cube-launchwall-right-app-image">
+                        Rhombus
+                    </div>
+                    <div class="cube-launchwall-right-app" onclick="openWindow('notes')">
+                        <img src="/assets/appnotes.png" alt="" class="cube-launchwall-right-app-image">
+                        Notes
+                    </div>
+                </div>
+                <div class="cube-launchwall-right-apps-row">
+                    <div class="cube-launchwall-right-app" onclick="openWindow('designer')">
+                        <img src="/assets/appdesigner.png" alt="" class="cube-launchwall-right-app-image">
+                        Designer
+                    </div>
+                    <div class="cube-launchwall-right-app" onclick="openWindow('watch')">
+                        <img src="/assets/appwatch.png" alt="" class="cube-launchwall-right-app-image">
+                        Watch
+                    </div>
+                    <div class="cube-launchwall-right-app" onclick="openWindow('settings')">
+                        <img src="/assets/appsettings.png" alt="" class="cube-launchwall-right-app-image">
+                        Settings
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cube-window" id="calculator-window">
+            <div class="cube-window-title" id="calculator-window-title">
+                <div class="cube-window-title-left">
+                    <img class="cube-window-title-icon" src="/assets/appcalculator.png" alt="Calculator">
+                    <p class="cube-window-title-name">Calculator</p>
+                </div>
+                <div class="cube-window-title-right">
+                    <button class="cube-window-title-button fullscreen" onclick="fullScreen('calculator')"><i
+                            class="bi bi-arrows-fullscreen"></i></button>
+                    <button class="cube-window-title-button recenter" onclick="returnWindow('calculator')"><i
+                            class="bi bi-align-bottom"></i></button>
+                    <button class="cube-window-title-button close" onclick="closeWindow('calculator')"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+            </div>
+            <div class="cube-window-content">
+                <div class="calculator-input" id="calculator-display">
+                    <p id="calculator-result-pre"><!--Empty, then contains the operation--></p>
+                    <h3 id="calculator-result">0</h3>
+                </div>
+                <div class="calculator-row calculator-row-1">
+                    <div class="calculator-button" onclick="clearDisplay()">C</div>
+                    <div class="calculator-button" onclick="appendOperator('+')">+</div>
+                    <div class="calculator-button" onclick="appendOperator('-')">-</div>
+                    <div class="calculator-button" onclick="backspace()">DEL</div>
+
+                </div>
+                <div class="calculator-row calculator-row-2">
+                    <div class="calculator-button" onclick="appendNumber('1')">1</div>
+                    <div class="calculator-button" onclick="appendNumber('2')">2</div>
+                    <div class="calculator-button" onclick="appendNumber('3')">3</div>
+                    <div class="calculator-button" onclick="appendOperator('/')">/</div>
+                </div>
+                <div class="calculator-row calculator-row-3">
+                    <div class="calculator-button" onclick="appendNumber('4')">4</div>
+                    <div class="calculator-button" onclick="appendNumber('5')">5</div>
+                    <div class="calculator-button" onclick="appendNumber('6')">6</div>
+                    <div class="calculator-button" onclick="appendOperator('*')">*</div>
+                </div>
+                <div class="calculator-row-bottom">
+                    <div class="calculator-row-bottom-container">
+                        <div class="calculator-row-bottom-1">
+                            <div class="calculator-button" onclick="appendNumber('7')">7</div>
+                            <div class="calculator-button" onclick="appendNumber('8')">8</div>
+                            <div class="calculator-button" onclick="appendNumber('9')">9</div>
+                        </div>
+                        <div class="calculator-row-bottom-2">
+                            <div class="calculator-button" onclick="appendDecimal()">,</div>
+                            <div class="calculator-button" onclick="appendNumber('0')">0</div>
+                            <div class="calculator-button" onclick="usePreviousAnswer()">^</div>
+                        </div>
+                    </div>
+                    <div class="calculator-button-bottom-lg" onclick="calculateResult()">=</div>
+                </div>
+
+
+
+
+                <div class="calculator-button" onclick="calculateResult()">=</div>
+
+            </div>
+        </div>
+        <div class="cube-window" id="rhombus-window">
+            <div class="cube-window-title" id="rhombus-window-title">
+                <div class="cube-window-title-left">
+                    <img class="cube-window-title-icon" src="/assets/apprhombus.png" alt="Rhombus">
+                    <p class="cube-window-title-name">Rhombus</p>
+                </div>
+                <div class="cube-window-title-right">
+                    <button class="cube-window-title-button fullscreen" onclick="fullScreen('rhombus')"><i
+                            class="bi bi-arrows-fullscreen"></i></button>
+                    <button class="cube-window-title-button recenter" onclick="returnWindow('rhombus')"><i
+                            class="bi bi-align-bottom"></i></button>
+                    <button class="cube-window-title-button close" onclick="closeWindow('rhombus')"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+            </div>
+            <div class="cube-window-content">
+                <div class="rhombus-browser">
+                    <div class="rhombus-header">
+                        <i class="bi bi-plus-circle rhombus-icon-lg rhombus-button blue" onclick="resetWindowFrame()"></i>
+                        <i class="bi bi-arrow-clockwise rhombus-icon-lg rhombus-button" onclick="reloadWebsite()"></i>
+                        <input type="text" name="url" placeholder="Enter URL query" class="rhombus-input url" id="urlinput"
+                            autocomplete="off">
+                        <i class="bi bi-send rhombus-button blue" onclick="fetchWebsite()"></i>
+                    </div>
+                    <div class="rhombus-main">
+                        <iframe src="/pages/rhombus/newtab.html" title="Rhombus" class="rhombus-website"
+                            name="rhombus-target" id="targeturl"></iframe>
+                        <!-- <div class="rhombus-sidebar">
+                                Sidebar
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cube-window" id="notes-window">
+            <div class="cube-window-title" id="notes-window-title">
+                <div class="cube-window-title-left">
+                    <img class="cube-window-title-icon" src="/assets/appnotes.png" alt="Rhombus">
+                    <p class="cube-window-title-name">Notes</p>
+                </div>
+                <div class="cube-window-title-right">
+                    <button class="cube-window-title-button fullscreen" onclick="fullScreen('notes')"><i
+                            class="bi bi-arrows-fullscreen"></i></button>
+                    <button class="cube-window-title-button recenter" onclick="returnWindow('notes')"><i
+                            class="bi bi-align-bottom"></i></button>
+                    <button class="cube-window-title-button close" onclick="closeWindow('notes')"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+            </div>
+            <div class="cube-window-content">
+                <h1>Jot down all your thoughts in the Notes app.</h1>
+            </div>
+        </div>
+        <div class="cube-window" id="designer-window">
+            <div class="cube-window-title" id="designer-window-title">
+                <div class="cube-window-title-left">
+                    <img class="cube-window-title-icon" src="/assets/appdesigner.png" alt="Rhombus">
+                    <p class="cube-window-title-name">Designer</p>
+                </div>
+                <div class="cube-window-title-right">
+                    <button class="cube-window-title-button fullscreen" onclick="fullScreen('designer')"><i
+                            class="bi bi-arrows-fullscreen"></i></button>
+                    <button class="cube-window-title-button recenter" onclick="returnWindow('designer')"><i
+                            class="bi bi-align-bottom"></i></button>
+                    <button class="cube-window-title-button close" onclick="closeWindow('designer')"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+            </div>
+            <div class="cube-window-content">
+                <h1>Draw and design anything you want!</h1>
+            </div>
+        </div>
+        <div class="cube-window" id="watch-window">
+            <div class="cube-window-title" id="watch-window-title">
+                <div class="cube-window-title-left">
+                    <img class="cube-window-title-icon" src="/assets/appwatch.png" alt="Rhombus">
+                    <p class="cube-window-title-name">Watch</p>
+                </div>
+                <div class="cube-window-title-right">
+                    <button class="cube-window-title-button fullscreen" onclick="fullScreen('watch')"><i
+                            class="bi bi-arrows-fullscreen"></i></button>
+                    <button class="cube-window-title-button recenter" onclick="returnWindow('watch')"><i
+                            class="bi bi-align-bottom"></i></button>
+                    <button class="cube-window-title-button close" onclick="closeWindow('watch')"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+            </div>
+            <div class="cube-window-content">
+                <h1>Watch your favourite TV channels and shows on the Watch app.</h1>
+            </div>
+        </div>
+        <div class="cube-window" id="settings-window">
+            <div class="cube-window-title" id="settings-window-title">
+                <div class="cube-window-title-left">
+                    <img class="cube-window-title-icon" src="/assets/appsettings.png" alt="Rhombus">
+                    <p class="cube-window-title-name">Settings</p>
+                </div>
+                <div class="cube-window-title-right">
+                    <button class="cube-window-title-button fullscreen" onclick="fullScreen('settings')"><i
+                            class="bi bi-arrows-fullscreen"></i></button>
+                    <button class="cube-window-title-button recenter" onclick="returnWindow('settings')"><i
+                            class="bi bi-align-bottom"></i></button>
+                    <button class="cube-window-title-button close" onclick="closeWindow('settings')"><i
+                            class="bi bi-x-lg"></i></button>
+                </div>
+            </div>
+            <div class="cube-window-content">
+                <h1>Customize and fine-tune your CubeOS.</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cube-main-desktop-dock">
+        <img class="dock-icon" src="/assets/cubeosicon.png" alt="Launchwall" onclick="launchwallSwitcher()">
+        <div class="dock-separator"></div>
+        <img class="dock-icon" src="/assets/appcalculator.png" alt="Calculator" onclick="openWindow('calculator')">
+        <img class="dock-icon" src="/assets/apprhombus.png" alt="Rhombus browser" onclick="openWindow('rhombus')">
+        <img class="dock-icon" src="/assets/appnotes.png" alt="Notes" onclick="openWindow('notes')">
+        <img class="dock-icon" src="/assets/appdesigner.png" alt="Designer" onclick="openWindow('designer')">
+        <img class="dock-icon" src="/assets/appwatch.png" alt="Watch" onclick="openWindow('watch')">
+        <img class="dock-icon" src="/assets/appsettings.png" alt="Settings" onclick="openWindow('settings')">
+        <div class="dock-separator"></div>
+        <div class="dock-widget widget-s widget-time">
+            <p class="widget-time-clock" id="widget-time-clock">00:00</p>
+            <p class="widget-time-date" id="widget-time-date">Monday, January 1st 0000</p>
+        </div>
+    </div>
+    <script src="/source/apps/dateTime.js"></script>
+    <script src="/source/windows.js"></script>
+    <script src="/source/apps/rhombus.js"></script>
+    <script src="/source/apps/calculator.js"></script>
+    <script src="/source/index.js"></script>
+</body>
+
+</html>
