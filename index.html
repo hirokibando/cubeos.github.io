@@ -123,12 +123,7 @@
                     </div>
                     <div class="calculator-button-bottom-lg" onclick="calculateResult()">=</div>
                 </div>
-
-
-
-
                 <div class="calculator-button" onclick="calculateResult()">=</div>
-
             </div>
         </div>
         <div class="cube-window" id="rhombus-window">
@@ -149,15 +144,16 @@
             <div class="cube-window-content">
                 <div class="rhombus-browser">
                     <div class="rhombus-header">
-                        <i class="bi bi-plus-circle rhombus-icon-lg rhombus-button blue" onclick="resetWindowFrame()"></i>
+                        <i class="bi bi-plus-circle rhombus-icon-lg rhombus-button blue"
+                            onclick="resetWindowFrame()"></i>
                         <i class="bi bi-arrow-clockwise rhombus-icon-lg rhombus-button" onclick="reloadWebsite()"></i>
-                        <input type="text" name="url" placeholder="Enter URL query" class="rhombus-input url" id="urlinput"
-                            autocomplete="off">
+                        <input type="text" name="url" placeholder="Enter URL query" class="rhombus-input url"
+                            id="urlinput" autocomplete="off">
                         <i class="bi bi-send rhombus-button blue" onclick="fetchWebsite()"></i>
                     </div>
                     <div class="rhombus-main">
-                        <iframe src="./pages/newtab.html" title="Rhombus" class="rhombus-website"
-                            name="rhombus-target" id="targeturl"></iframe>
+                        <iframe src="./pages/newtab.html" title="Rhombus" class="rhombus-website" name="rhombus-target"
+                            id="targeturl"></iframe>
                         <!-- <div class="rhombus-sidebar">
                                 Sidebar
                             </div> -->
@@ -184,7 +180,7 @@
                 <h1>Jot down all your thoughts in the Notes app.</h1>
             </div>
         </div>
-        <div class="cube-window" id="designer-window">
+        <div class="cube-window visible" id="designer-window">
             <div class="cube-window-title" id="designer-window-title">
                 <div class="cube-window-title-left">
                     <img class="cube-window-title-icon" src="./assets/appdesigner.png" alt="Rhombus">
