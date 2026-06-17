@@ -8,7 +8,7 @@ if (self != top) {
 
 const fetchWebsite = () => {
     if (urlInput.value != null || urlInput.value != undefined || urlInput.value != '') {
-        target.src = urlInput.value;
+        target.src =  "https://" + urlInput.value;
     } else {
         target.src = standardUrl;
     }

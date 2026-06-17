@@ -412,3 +412,7 @@ WINDOWS AND APPS WINDOWS AND APPS WINDOWS AND APPS WINDOWS AND APPS WINDOWS AND 
 #rhombus-window {
     resize: none;
 }
+
+.calculator-button {
+    cursor:pointer;
+}
